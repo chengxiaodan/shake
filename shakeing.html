@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="screen-orientation" content="portrait">
+		<meta name="viewport" content="user-scalable=no,width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<script src="js/view-port.js"></script>
+		<style type="text/css">
+			* {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				background: url(img/shakeing.jpg) no-repeat center center;
+				background-size: 100% 100%;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			.shake {
+				margin: 0 auto;
+				width: 100%;
+				text-align: center;
+				height: 0.89rem;
+			}
+			
+			.shake img {
+				width: 2.32rem;
+				height: 0.89rem;
+				margin-top: 0.5rem;
+			}
+			
+			@-webkit-keyframes shake {
+				0%,
+				100% {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0)
+				}
+				10%,
+				30%,
+				50%,
+				70%,
+				90% {
+					-webkit-transform: translate3d(-10px, 0, 0);
+					transform: translate3d(-10px, 0, 0)
+				}
+				20%,
+				40%,
+				60%,
+				80% {
+					-webkit-transform: translate3d(10px, 0, 0);
+					transform: translate3d(10px, 0, 0)
+				}
+			}
+			
+			@keyframes shake {
+				0%,
+				100% {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0)
+				}
+				10%,
+				30%,
+				50%,
+				70%,
+				90% {
+					-webkit-transform: translate3d(-10px, 0, 0);
+					transform: translate3d(-10px, 0, 0)
+				}
+				20%,
+				40%,
+				60%,
+				80% {
+					-webkit-transform: translate3d(10px, 0, 0);
+					transform: translate3d(10px, 0, 0)
+				}
+			}
+			
+			.shake_active {
+				-webkit-animation-name: shake;
+				animation-name: shake;
+				-webkit-animation-duration: 1s;
+				animation-duration: 1s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+				-webkit-animation-iteration-count: infinite;
+				animation-iteration-count: infinite
+			}
+		</style>
+		<title>摇一摇</title>
+	</head>
+
+	<body onload="init()">
+		<div class="shake">
+			<img src="img/font.png" class="shake_active" />
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		var status = false;//游戏状态
+		var media;
+		initAudio('musicBox');
+
+		function initAudio(id) {
+			media = document.getElementById(id);
+		}
+		var SHAKE_THRESHOLD = 1000;  
+        var last_update = 0;  
+        var x = y = z = last_x = last_y = last_z = 0;  
+        function init() {
+			//getUserId();
+
+            if (window.DeviceMotionEvent) {  
+                window.addEventListener('devicemotion', deviceMotionHandler, false);  
+            } else {  
+                alert('not support mobile event');  
+            }  
+        }  
+
+        function deviceMotionHandler(eventData) {
+            var acceleration = eventData.accelerationIncludingGravity;  
+            var curTime = new Date().getTime();  
+            if ((curTime - last_update) > 100) {  
+                var diffTime = curTime - last_update;  
+                last_update = curTime;  
+                x = acceleration.x;  
+                y = acceleration.y;  
+                z = acceleration.z;  
+                var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;  
+  				var timelang = null;
+                if (speed > SHAKE_THRESHOLD) {
+                    media.play();
+					getStatus();
+					if(status) {
+						add();
+					}
+                }else{
+					media.pause();
+
+                }
+                last_x = x;  
+                last_y = y;  
+                last_z = z;  
+            }  
+        }
+		function add () {
+
+			$.ajax({
+				url: '/conference/add',
+				type: 'POST',
+				dataType: 'json',
+				processData: false,
+				contentType: false,
+				cache: false,
+				async: false,
+				success: function () {
+				}
+			})
+		}
+		function getStatus () {
+			$.ajax({
+				url: '/conference/getstatus',
+				type: 'GET',
+				dataType: 'json',
+				processData: false,
+				contentType: false,
+				cache: false,
+				async: false,
+				success: function (data) {
+					status = data;
+					if(data == 0){
+						status = false;
+					}else{
+						status = true;
+					}
+
+				}
+			})
+		}
+	</script>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="screen-orientation" content="portrait">
+		<meta name="viewport" content="user-scalable=no,width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<script src="js/view-port.js"></script>
+		<title>摇一摇</title>
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/tip.css" />
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="content">
+				<p>活动尚未开始<br />请耐心等待</p>
+				<a  target="_self" class="shake" id="shake">摇一摇</a>
+			</div>
+			<div class="astronaut"></div>
+		</div>
+		<div id="layui-m-layer12" class="layui-m-layer layui-m-layer0" index="12">
+			<div class="layui-m-layershade"></div>
+			<div class="layui-m-layermain">
+				<div class="layui-m-layersection">
+					<div class="layui-m-layerchild  layui-m-anim-scale">
+						<div class="layui-m-layercont">游戏尚未开始，请耐心等待！</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var shake = false; //true已开始false未开始
+			$('#shake').click(function() {
+				if(shake) {
+					window.location = 'shakeing.html';
+				} else {
+					$('#layui-m-layer12').show();
+					document.addEventListener('touchend', function(event) {
+						$('#layui-m-layer12').hide();
+					}, false);
+					setTimeout(function() {
+						$('#layui-m-layer12').hide();
+					}, 3000);
+				}
+			});
+		})
+	</script>
+
+</html>

@@ -1,0 +1,68 @@
+* {
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+a {
+	color: #333
+}
+
+a:hover {
+	color: #000;
+}
+
+a {
+	text-decoration: none
+}
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	font-family: serif;
+}
+.wrapper {
+	width: 100%;
+	height: 100%;
+	min-width: 6.4rem;
+	background: url(../img/bg.jpg) no-repeat center;
+	background-size: 100% 100%;
+}
+.wrapper .content{
+	width: 3.9rem;
+	margin: 0 auto;
+	height: 100%;
+	text-align: center;
+}
+.wrapper p {
+	font-size: 0.4rem;
+	color: #fdef23;
+	position: absolute;
+	top: 4rem;
+	text-align: center;
+	line-height: 0.6rem;
+	width: 3.9rem;
+}
+.wrapper .shake {
+	background: url(../img/btn_shake.png) no-repeat center;
+	background-size: 100% 100%;
+	width: 3.9rem;
+	height: 1.08rem;
+	color: #f95207;
+	font-size: .39rem;
+	font-weight: bold;
+	display: block;
+	position: absolute;
+	bottom: 2rem;
+	text-align: center;
+	line-height: 1.08rem;
+}
+.wrapper .astronaut {
+	width: 0.9rem;
+	height: 1rem;
+	background: url(../img/astronaut.png) no-repeat center;
+	background-size: 100% 100%;
+	position: absolute;
+	bottom: 1.5rem;
+	left:0.4rem;
+}
