@@ -1,0 +1,355 @@
+* {
+	margin: 0;
+	padding: 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.wrapper .content {
+	width: 100%;
+	max-width: 1600px;
+	margin: 0 auto;
+	position: relative;
+	height: 900px;
+}
+
+.wrapper .a {
+	background: url(../img/bg.jpg) no-repeat center;
+}
+
+.wrapper .b {
+	background: url(../img/win_bg.jpg) no-repeat center;
+}
+
+.content .header {
+	width: 561px;
+	height: auto;
+	padding-top: 148px;
+	margin: 0 auto;
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	z-index: 33;
+}
+
+.btn {
+	cursor: pointer;
+	cursor: -ms-pointer;
+	display: block;
+	width: 200px;
+	height: 80px;
+}
+
+.btn_Ready {
+	margin-top: 130px;
+	background: url(../img/btn_Ready.png) no-repeat center;
+}
+
+.btn_Replay {
+	-webkit-animation: fadeIn 1s ease 0s 1 normal;
+	animation: fadeIn 1s ease 0s 1 normal;
+	background: url(../img/btn_replay.png) no-repeat center;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.fadeIn {
+	-webkit-animation: fadeIn 1s ease 0s 1 normal;
+	animation: fadeIn 1s ease 0s 1 normal;
+}
+#code_static {
+	display: none;
+}
+
+.content .code {
+	width: 169px;
+	height: 147px;
+	display: block;
+	position: absolute;
+	bottom: 167px;
+	right: 137px;
+	z-index: 8888;
+	cursor: default;
+	cursor: -ms-default;
+	background: url(../img/btn_code.png) no-repeat center;
+}
+
+#code {
+	cursor: pointer;
+	cursor: -ms-pointer;
+}
+
+.content .audioPlay {
+	width: 145px;
+	height: 78px;
+	background-image: url(../img/mu_on.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	bottom: 51px;
+	right: 10px;
+	z-index: 9999999;
+	cursor: pointer;
+	cursor: -ms-pointer;
+}
+
+.header .pic_code {
+	display: none;
+	width: 270px;
+	height: 408px;
+	padding-bottom: 435px;
+}
+
+.header .pic_code img {
+	margin-top: 62px;
+}
+
+.header .pic_code .lable {
+	font-family: "微软雅黑";
+	font-size: 20px;
+	color: white;
+}
+
+.header .timer {
+	height: 408px;
+	width: 100%;
+	display: none;
+	background-image: url(../img/num/8.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#video_content {
+	display: none;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+#video_content video {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	max-width: 1600px;
+	max-height: 900px;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	background-size: cover;
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.content .winer {
+	display: none;
+	width: 1020px;
+	height: 100%;
+	margin: 0 auto;
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+}
+
+.content .winer .winer_btn {
+	margin: 0 auto;
+	width: 1020px;
+	height: 80px;
+	position: absolute;
+	bottom: 110px;
+}
+
+.content .winer ul {
+	width: 900px;
+	position: absolute;
+	bottom: -10px;
+	margin-left: 71px;
+	z-index: 99px;
+}
+
+.content .winer ul li {
+	width: 100px;
+	height: 150px;
+	float: left;
+	margin-left: 95px;
+	cursor: pointer;
+	cursor: -ms-pointer;
+	/*position: relative;*/
+}
+
+.content .winer ul li:first-child {
+	margin-left: 0px;
+}
+
+.card {
+	width: 92px;
+	height: 150px;
+	position: relative;
+}
+
+.card img {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.card .name {
+	width: 92px;
+	font-size: 18px;
+	color: white;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0px;
+}
+
+.card .photo {
+	border-style: solid;
+	border-width: 4px;
+	border-color: rgb(255, 255, 255);
+	border-radius: 50%;
+	background-color: rgb(255, 255, 255);
+	width: 92px;
+	height: 91px;
+}
+
+.card .basic {
+	cursor: default;
+	cursor: -ms-default;
+	display: block;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	transition: transform 0.3s;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+}
+.card .an_font {
+	-webkit-transform: rotateY( 180deg);
+	-moz-transform: rotateY( 180deg);
+	-o-transform: rotateY( 180deg);
+	transform: rotateY( 180deg);
+}
+
+.card .an_back {
+	-webkit-transform: rotateY( 0deg);
+	-moz-transform: rotateY( 0deg);
+	-o-transform: rotateY( 0deg);
+	transform: rotateY( 0deg);
+}
+
+.card .font {
+	-webkit-transform: rotateY( 0deg);
+	-moz-transform: rotateY( 0deg);
+	-o-transform: rotateY( 0deg);
+	transform: rotateY( 0deg);
+}
+
+.card .back {
+	-webkit-transform: rotateY( -180deg);
+	-moz-transform: rotateY( -180deg);
+	-o-transform: rotateY( -180deg);
+	transform: rotateY( -180deg);
+}
+
+@keyframes fdong {
+	0% {
+		transform: translate3d(0, 100%, 0);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+@-webkit-keyframes fdong {
+	0% {
+		transform: translate3d(0, 100%, 0);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+@-moz-keyframes fdong {
+	0% {
+		transform: translate3d(0, 100%, 0);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+.animated {
+	-webkit-animation: 1.5s ease 1;
+	/*为Chrome/Safari*/
+	-moz-animation: 1.5s ease 1;
+	/*为Firefox*/
+	-ms-animation: 1.5s ease 1;
+	/*为IE*/
+	-o-animation: 1.5s ease 1;
+	/*为Opera*/
+	animation: 1.5s ease 1;
+}
+
+.fdong {
+	-webkit-animation-name: fdong;
+	animation-name: fdong;
+	-moz-animation-name: fdong;
+	-ms-animation-name: fdong;
+}
+@-webkit-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		bottom: 463px;
+		right: 526px;
+	}
+}
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		bottom: 463px;
+		right: 526px;
+	}
+}
+
+.fadeInDown {
+	-webkit-animation-name: fadeInDown;
+	animation-name: fadeInDown
+}

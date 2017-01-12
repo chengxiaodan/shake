@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+		<link rel="stylesheet" href="css/ready.css" />
+		<script type="text/javascript" src="js/view-port.js"></script>
+		<title>发布会摇一摇</title>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div id="main" class="content a">
+				<div id="ready_main" class="header">
+					<img id="gift" src="img/putao_gift.png" width="561" height="408" />
+					<div id="pic_code" class="pic_code">
+						<img src="img/code.png" width="270" height="271" />
+						<div class="lable">扫一扫关注“葡萄纬度Lat”</div>
+					</div>
+					<div id="timer" class="timer"></div>
+					<a id="ready" href="#" class="btn btn_Ready"></a>
+				</div>
+				<div id="winer" class="winer">
+					<ul id="userList">
+						<li>
+							<div class="card">
+								<a href="#" class="basic back">
+									<img src="" class="photo" />
+									<div class="name"></div>
+								</a>
+								<a href="#" class="basic font"><img src="img/winner.png" /></a>
+							</div>
+						</li>
+						<li>
+							<div class="card">
+								<a href="#" class="basic back">
+									<img src="" class="photo" />
+									<div class="name"></div>
+								</a>
+								<a href="#" class="basic font"><img src="img/winner.png" /></a>
+							</div>
+						</li>
+						<li>
+							<div class="card">
+								<a href="#" class="basic back">
+									<img src="" class="photo" />
+									<div class="name"></div>
+								</a>
+								<a href="#" class="basic font"><img src="img/winner.png" /></a>
+							</div>
+						</li>
+						<li>
+							<div class="card">
+								<a href="#" class="basic back">
+									<img src="" class="photo" />
+									<div class="name"></div>
+								</a>
+								<a href="#" class="basic font"><img src="img/winner.png" /></a>
+							</div>
+						</li>
+						<li>
+							<div class="card">
+								<a href="#" class="basic back">
+									<img src="" class="photo" />
+									<div class="name"></div>
+								</a>
+								<a href="#" class="basic font"><img src="img/winner.png" /></a>
+							</div>
+						</li>
+					</ul>
+					<div class="winer_btn">
+						<a id="replay" href="#" class="btn btn_Replay"></a>
+					</div>
+				</div>
+				<a id="code" href="#" class="code"></a>
+				<a id="code_static" href="javascript:void(0);" class="code"></a>
+				<audio src="bg_music.mp3" loop="loop" autoplay="autoplay" id="audio" hidden="hidden"></audio>
+				<div id="audioPlay" class="audioPlay"></div>
+				<div id="video_content" class="content">
+					<video id="video">
+						<source src="yaoshu02.mp4" type="video/mp4"></source>
+						<source src="yaoshu02.ogv" type="video/ogg"></source>
+						<source src="yaoshu02.webm" type="video/webm"></source>
+						<object width="1060" height="595" type="application/x-shockwave-flash" data="yaoshu02.swf">
+							<param name="movie" value="yaoshu02.swf" />
+							<param name="flashvars" value="autostart=true&amp;file=yaoshu02.swf" />
+						</object> 当前浏览器不支持 video直接播放，点击这里下载视频：
+						<a href="yaoshu02.swf">下载视频</a>
+					</video>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			window.onload = function() {
+				initAudio("audio");
+			}
+			var audio;
+
+			function initAudio(id) {
+				audio = document.getElementById(id);
+			}
+
+			//					document.addEventListener('touchmove', function(event) {
+			//						event.preventDefault();
+			//					}, false);
+			new Putao.Index();
+		})
+	</script>
+
+</html>
